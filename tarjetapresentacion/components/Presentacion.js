@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text, Image, Linking, Pressable, ScrollView} from 'react-native';
+import {StyleSheet, View, Text, Image, Linking, Button, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 export default function Presentacion() {
   const Instagram=()=>{
@@ -7,20 +7,20 @@ export default function Presentacion() {
   return (
     <SafeAreaView>
     <ScrollView>
-    <View style={styles.container}>
-       <Text style={styles.yo}>¡Hola! Soy Leonardo Ibañez</Text>
-        <Text>Edad: 17 Años</Text>
+    
+    <View style={styles.informacion}>
+       <Text style={styles.yo}>Nombre: Leonardo Javier</Text>
+       <Text style={styles.yo}>Apellido: Ibañez</Text>
+        <Text style={styles.yo}>Edad: 17 Años</Text>
+        <Text style={styles.yo}>Fecha de Nacimiento: 08/11/2008</Text>
+        <Text style={styles.yo}>Localidad: Las Varillas</Text>
+      </View>
+      <View style={styles.container}>
         <Image source={require("./Foto.jpeg")} style={styles.image}/>
-         <Pressable
-         style={({ pressed }) => [
-        styles.boton,
-        pressed && styles.botonPresionado]}
-        onPressIn={()  => alert('1. onPressIn  → dedo apoyado')}
-        onPressOut={() => alert('2. onPressOut → dedo levantado')}
-        onPress={Instagram}
-        title="Instagram">
-        <Text style={styles.titulo}>Tocame</Text>
-      </Pressable>
+        <Button 
+          onPress={Instagram}
+          title="Instagram"
+        />
     </View>
     </ScrollView>
     </SafeAreaView>
@@ -34,24 +34,19 @@ const styles = StyleSheet.create({
   },
   image:{
     width:200,
-    height:200
+    height:200,
+    borderRadius:20,
+    marginBottom:30
   },
   yo:{
-    fontSize:40,
+    fontSize:20,
     color:"light-blue"
   },
-titulo:{
-  color: 'light-red', 
-  textAlign: 'center'
-},
-boton: {
-    backgroundColor: '#4f9deb',
-    padding: 14,
-    borderRadius: 8,
-    alignItems: 'center',
+  informacion:{
+    fontWeight:"bold",
+    padding: 20,
+    fontFamily:"Arial",
+    flex:1,
+    justifyContent:"left",
   },
-botonPresionado: {
-    backgroundColor: 'blue',  
-    opacity: 0.7,
-}
 })
